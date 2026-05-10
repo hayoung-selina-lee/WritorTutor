@@ -11,6 +11,8 @@ export default {
         },
         secondary: "#6366F1",
         accent: "#8B5CF6",
+        background: "#F9FAFB",
+        disabled: "#BDBDBD",
       },
       fontFamily: {
         serif: ["Georgia", "serif"], // logo font

@@ -4,14 +4,19 @@ function TopicCard({ topic }) {
   return (
     <div className="">
       <div className="rounded-lg bg-primary-light py-5">
-        <div className="flex flex-row justify-between items-center px-2 ">
+        <div className="flex flex-row justify-between items-center px-5 ">
           <div className="flex flex-col">
-            <div className="">Today's Topic?</div>
-            <div className="text-primary font-medium text-2xl">{topic}</div>
+            <div className="text-sm font-medium pb-1">Today's Topic?</div>
+            <div className="text-primary font-semibold text-2xl">{topic}</div>
           </div>
-          <button className="flex items-center gap-2 p-1 text-white bg-primary shadow-md rounded-lg hover:bg-primary-dark">
+          <button
+            className="px-2 flex items-center gap-1 p-1 text-white bg-primary shadow-md rounded-lg shadow-md hover:bg-primary-dark"
+            onClick={(e) => {
+              console.log("new topic button clicked! ", e);
+            }}
+          >
             <IoMdRefresh />
-            button
+            New Topic
           </button>
         </div>
       </div>

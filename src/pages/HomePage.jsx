@@ -4,16 +4,16 @@ import useOpenAI from "../hooks/useOpenAI";
 import { useEffect } from "react";
 
 function HomePage() {
-  const { topic, isLoading, error, generateTopic } = useOpenAI();
+  const { topic, feedback, isLoading, error, generateTopic, getFeedback } = useOpenAI();
 
-  useEffect(() => {
+  /*useEffect(() => {
     generateTopic();
-  }, []);
+  }, []);*/
 
   return (
     <div className="bg-background p-4 max-w-2xl mx-auto ">
       <TopicCard topic={topic} onNewTopic={generateTopic} />
-      <WritingEditor />
+      <WritingEditor feedback={feedback} onGetFeedback={getFeedback} />
     </div>
   );
 }

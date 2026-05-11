@@ -1,10 +1,18 @@
 import TopicCard from "../components/TopicCard";
 import WritingEditor from "../components/WritingEditor";
+import useOpenAI from "../hooks/useOpenAI";
+import { useEffect } from "react";
 
 function HomePage() {
+  const { topic, isLoading, error, generateTopic } = useOpenAI();
+
+  useEffect(() => {
+    generateTopic();
+  }, []);
+
   return (
     <div className="bg-background p-4 max-w-2xl mx-auto ">
-      <TopicCard topic="This is Random Topic!" />
+      <TopicCard topic={topic} onNewTopic={generateTopic} />
       <WritingEditor />
     </div>
   );

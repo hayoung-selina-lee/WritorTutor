@@ -30,17 +30,21 @@ function WritingEditor({ writing, setWriting, onGetFeedback, isFeedbackLoading }
 
       <div className="flex flex-row justify-between items-center">
         <div>{countWords} words</div>
-        <button className={"min-w-[165px] rounded-lg " + buttonClass} onClick={() => onGetFeedback(writing)} disabled={countWords === 0 || isFeedbackLoading}>
+        <button
+          className={"min-w-[165px] rounded-lg flex items-center justify-center gap-1 text-white px-2 p-1 " + buttonClass}
+          onClick={() => onGetFeedback(writing)}
+          disabled={countWords === 0 || isFeedbackLoading}
+        >
           {isFeedbackLoading ? (
-            <div className="flex items-center gap-2 text-white shadow-md px-2 p-1">
+            <>
               <div className="w-6 h-6 border-4 border-white/40 border-t-white rounded-full animate-spin " />
               Checking...
-            </div>
+            </>
           ) : (
-            <div className="flex items-center gap-1 text-white shadow-md px-2 p-1 ">
+            <>
               <FaCheck />
               Check My Writing
-            </div>
+            </>
           )}
         </button>
       </div>

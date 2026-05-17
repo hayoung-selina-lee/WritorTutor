@@ -1,15 +1,8 @@
-import { useState, useEffect } from "react";
 import { FaPen } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa";
 
 function WritingEditor({ writing, setWriting, onGetFeedback, isFeedbackLoading }) {
-  const [countWords, setCountWords] = useState(0);
-
-  useEffect(() => {
-    if (writing === "") {
-      setCountWords(0);
-    }
-  }, [writing]);
+  const countWords = writing.trim() === "" ? 0 : writing.trim().split(/\s+/).length;
 
   // check button condition setting
   const checkButton = {
@@ -30,8 +23,6 @@ function WritingEditor({ writing, setWriting, onGetFeedback, isFeedbackLoading }
         className="p-2 border border-2 border-primary-light rounded-lg w-full min-h-64 focus:border-primary resize-none"
         onChange={(e) => {
           setWriting(e.target.value);
-          const trimmedInput = e.target.value.trim();
-          trimmedInput === "" ? setCountWords(0) : setCountWords(trimmedInput.split(/\s+/).length);
         }}
         value={writing}
         placeholder="Start writing here..."

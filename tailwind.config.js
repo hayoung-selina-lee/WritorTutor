@@ -25,7 +25,7 @@ export default {
           },
           suggestion: {
             bg: "#EAF3DE",
-            test: "#3B6D11",
+            text: "#3B6D11",
           },
           encouragement: {
             bg: "#EAF3DE",

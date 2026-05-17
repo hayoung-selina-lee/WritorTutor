@@ -1,4 +1,5 @@
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaRegStar } from "react-icons/fa";
+import { FaPencil } from "react-icons/fa6";
 
 function FeedbackCard({ feedback }) {
   const badgeStyle = {
@@ -28,8 +29,21 @@ function FeedbackCard({ feedback }) {
         ))}
       </div>
 
-      <div>{feedback?.improvedVersion}</div>
-      <div>{feedback?.encouragement}</div>
+      <div>
+        {feedback && (
+          <div>
+            <div className="flex items-center gap-2 pl-1 pt-3 font-medium">
+              <FaPencil />
+              Improved version
+            </div>
+            <div className="border-[2px] rounded-md p-2 my-2">{feedback?.improvedVersion}</div>
+            <div className="rounded-md pl-3 p-2 my-2 bg-feedbackcard-suggestion-bg flex flex-row gap-3 items-center">
+              <FaRegStar size="30" className="text-feedbackcard-suggestion-text" />
+              <div className="text-feedbackcard-suggestion-text">{feedback?.encouragement}</div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -7,11 +7,12 @@ function useOpenAI() {
   const [topic, setTopic] = useState(null);
   const [feedback, setFeedback] = useState(null);
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isFeedbackLoading, setIsFeedbackLoading] = useState(false);
+  const [isTopicLoading, setIsTopicLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const generateTopic = async () => {
-    setIsLoading(true);
+    setIsTopicLoading(true);
     try {
       // request
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -45,12 +46,12 @@ function useOpenAI() {
     } catch (e) {
       setError(e);
     } finally {
-      setIsLoading(false);
+      setIsTopicLoading(false);
     }
   };
 
   const getFeedback = async (userWriting) => {
-    setIsLoading(true);
+    setIsFeedbackLoading(true);
     try {
       // request
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -83,11 +84,13 @@ function useOpenAI() {
     } catch (e) {
       setError(e);
     } finally {
-      setIsLoading(false);
+      setIsFeedbackLoading(false);
     }
   };
 
-  return { topic, feedback, isLoading, error, generateTopic, getFeedback };
+  const resetFeedback = () => setFeedback(null);
+
+  return { topic, feedback, isFeedbackLoading, isTopicLoading, error, generateTopic, getFeedback, resetFeedback };
 }
 
 export default useOpenAI;

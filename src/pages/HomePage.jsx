@@ -12,7 +12,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="bg-background p-4 max-w-2xl mx-auto ">
+    <div className="bg-background p-4 max-w-4xl mx-auto ">
       <TopicCard topic={topic} onNewTopic={generateTopic} />
       <WritingEditor onGetFeedback={getFeedback} />
       <FeedbackSection feedbacks={feedback} />

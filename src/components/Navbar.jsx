@@ -3,11 +3,11 @@ import LogoImage from "../assets/logo_title.svg";
 
 function Navbar() {
   return (
-    <nav className="p-4 border-b w-full">
+    <nav className="p-4 border-b max-w-4xl mx-auto">
       <div className="flex flex-row items-center justify-between">
         <div className="flex flex-row gap-3 items-center">
           <Link to="/">
-            <img src={LogoImage} className="w-60" alt="WriteTutor logo" />
+            <img src={LogoImage} className="w-32" alt="WriteTutor logo" />
           </Link>
           <div className="pl-3 flex font-semibold flex-row gap-5">
             <Link className="hover:text-primary" to="/">
